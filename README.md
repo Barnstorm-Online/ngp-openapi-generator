@@ -1,0 +1,1 @@
+# ngp-openapi-generator
