@@ -1,0 +1,32 @@
+{
+  "name": "ngp-openapi-generator",
+  "version": "0.0.1",
+  "description": "",
+  "main": "mad-swagger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barnstorm-Online/ngp-openapi-generator.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Barnstorm-Online/ngp-openapi-generator/issues"
+  },
+  "homepage": "https://github.com/Barnstorm-Online/ngp-openapi-generator#readme",
+  "dependencies": {
+    "@octokit/rest": "^16.28.0",
+    "dotenv": "^8.0.0",
+    "fs-extra": "^8.0.1",
+    "handlebars": "^4.1.2",
+    "nodegit": "^0.24.3"
+  },
+  "generator": {
+    "org": "Barnstorm-Online",
+    "languages": [
+      "php"
+    ]
+  }
+}
