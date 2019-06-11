@@ -1,0 +1,14 @@
+[
+  {
+    "lang": "javascript",
+    "vols": [
+      "./packages/ngp-javascript-api:/local"
+    ]
+  },
+  {
+    "lang": "php",
+    "vols": [
+      "./packages:/local"
+    ]
+  }
+]

@@ -1,0 +1,577 @@
+{
+  "title": "Yea boi",
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Coding as activism",
+    "description": "TODO: Add Description",
+    "contact": {}
+  },
+  "host": "api.securevan.com",
+  "basePath": "/v4",
+  "securityDefinitions": {
+    "auth": {
+      "type": "basic"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/echoes": {
+      "post": {
+        "description": "",
+        "summary": "Hello world",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "EchoesPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/HelloworldRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ]
+      }
+    },
+    "/people/findOrCreate": {
+      "post": {
+        "description": "",
+        "summary": "Create a volunteer record",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "PeopleFindOrCreatePost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateavolunteerrecordRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ]
+      }
+    },
+    "/events/4306": {
+      "get": {
+        "description": "",
+        "summary": "Get event details",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Events4306Get",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "$expand",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ]
+      }
+    },
+    "/signups": {
+      "post": {
+        "description": "",
+        "summary": "RSVP to an event",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "SignupsPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RSVPtoaneventRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ]
+      }
+    },
+    "/people/100879417/canvassResponses": {
+      "post": {
+        "description": "",
+        "summary": "Collect canvass data",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "People100879417CanvassResponsesPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CollectcanvassdataRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "HelloworldRequest": {
+      "title": "HelloworldRequest",
+      "example": {
+        "message": "Hello, world!"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ]
+    },
+    "CreateavolunteerrecordRequest": {
+      "title": "CreateavolunteerrecordRequest",
+      "example": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "emails": [
+          {
+            "email": "jdoe@fake.ngpvan.com"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Email"
+          }
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "emails"
+      ]
+    },
+    "Email": {
+      "title": "Email",
+      "example": {
+        "email": "jdoe@fake.ngpvan.com"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email"
+      ]
+    },
+    "RSVPtoaneventRequest": {
+      "title": "RSVPtoaneventRequest",
+      "example": {
+        "person": {
+          "vanId": 100879417
+        },
+        "event": {
+          "eventId": 4306
+        },
+        "location": {
+          "locationId": 333
+        },
+        "role": {
+          "roleId": 198334
+        },
+        "shift": {
+          "eventShiftId": 5961
+        },
+        "status": {
+          "statusId": 1
+        }
+      },
+      "type": "object",
+      "properties": {
+        "person": {
+          "$ref": "#/definitions/Person"
+        },
+        "event": {
+          "$ref": "#/definitions/Event"
+        },
+        "location": {
+          "$ref": "#/definitions/Location"
+        },
+        "role": {
+          "$ref": "#/definitions/Role"
+        },
+        "shift": {
+          "$ref": "#/definitions/Shift"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      },
+      "required": [
+        "person",
+        "event",
+        "location",
+        "role",
+        "shift",
+        "status"
+      ]
+    },
+    "Person": {
+      "title": "Person",
+      "example": {
+        "vanId": 100879417
+      },
+      "type": "object",
+      "properties": {
+        "vanId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "vanId"
+      ]
+    },
+    "Event": {
+      "title": "Event",
+      "example": {
+        "eventId": 4306
+      },
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "eventId"
+      ]
+    },
+    "Location": {
+      "title": "Location",
+      "example": {
+        "locationId": 333
+      },
+      "type": "object",
+      "properties": {
+        "locationId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "locationId"
+      ]
+    },
+    "Role": {
+      "title": "Role",
+      "example": {
+        "roleId": 198334
+      },
+      "type": "object",
+      "properties": {
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "roleId"
+      ]
+    },
+    "Shift": {
+      "title": "Shift",
+      "example": {
+        "eventShiftId": 5961
+      },
+      "type": "object",
+      "properties": {
+        "eventShiftId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "eventShiftId"
+      ]
+    },
+    "Status": {
+      "title": "Status",
+      "example": {
+        "statusId": 1
+      },
+      "type": "object",
+      "properties": {
+        "statusId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "statusId"
+      ]
+    },
+    "CollectcanvassdataRequest": {
+      "title": "CollectcanvassdataRequest",
+      "example": {
+        "canvassContext": {
+          "contactTypeId": 8,
+          "dateCanvassed": "2017-08-08",
+          "inputTypeId": 11
+        },
+        "responses": [
+          {
+            "action": "Apply",
+            "activistCodeId": 4369730,
+            "type": "ActivistCode"
+          },
+          {
+            "surveyQuestionId": 259400,
+            "surveyResponseId": 1085255,
+            "type": "SurveyResponse"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "canvassContext": {
+          "$ref": "#/definitions/CanvassContext"
+        },
+        "responses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Response"
+          }
+        }
+      },
+      "required": [
+        "canvassContext",
+        "responses"
+      ]
+    },
+    "CanvassContext": {
+      "title": "CanvassContext",
+      "example": {
+        "contactTypeId": 8,
+        "dateCanvassed": "2017-08-08",
+        "inputTypeId": 11
+      },
+      "type": "object",
+      "properties": {
+        "contactTypeId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dateCanvassed": {
+          "type": "string"
+        },
+        "inputTypeId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "contactTypeId",
+        "dateCanvassed",
+        "inputTypeId"
+      ]
+    },
+    "Response": {
+      "title": "Response",
+      "example": {
+        "action": "Apply",
+        "activistCodeId": 4369730,
+        "type": "ActivistCode"
+      },
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "activistCodeId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "surveyQuestionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "surveyResponseId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}

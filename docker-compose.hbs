@@ -1,0 +1,14 @@
+version: '3.0'
+
+services:
+{{#each this}}
+  {{lang}}-client-generator:
+    image: swaggerapi/swagger-codegen-cli:latest
+    command: generate -i /spec/ngpvan-api-v4.json -l {{lang}} -o /local -c /configs/lang.{{lang}}.json
+    volumes:
+      {{#each vols}}
+      - {{this}}
+      - ./configs:/configs
+      - ./spec:/spec
+      {{/each}}
+{{/each}}

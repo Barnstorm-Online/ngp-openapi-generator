@@ -1,0 +1,9 @@
+{
+  "modelPackage" : "Model",
+  "packagePath": "ngp-php-api",
+  "invokerPackage": "NGP",
+  "apiPackage" : "Core",
+  "gitUserId": "telluric",
+  "composerProjectName": "ngp-api",
+  "gitRepoId": "wp-plugin-ngp"
+}
