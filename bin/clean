@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+require('dotenv').config();
+const Octokit = require('@octokit/rest');
+const fse = require('fs-extra');
+const github = new Octokit({
+  userAgent: process.env['GITHUB_USER_AGENT'],
+  auth: process.env['GITHUB_TOKEN'],
+});
+
+github.repos.delete({
+  owner: 'barnstorm-online',
+  repo: 'ngp-php-api',
+}).catch(()=>{console.log('not found')});
+github.repos.delete({
+  owner: 'barnstorm-online',
+  repo: 'ngp-javascript-api',
+}).catch(()=>{console.log('not found')});
+fse.remove('packages')

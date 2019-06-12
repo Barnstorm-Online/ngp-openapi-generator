@@ -1,8 +1,18 @@
 const path = require('path');
 const fse = require('fs-extra');
-const {Clone} = require('nodegit');
+const {Clone, Cred} = require('nodegit');
 const Language = require('./Language');
 
+let options = {
+  fetchOpts: {
+    callbacks: {
+      credentials: function (url, userName) {
+        // this is changed from sshKeyNew to sshKeyFromAgent
+        return Cred.sshKeyFromAgent(userName);
+      }
+    }
+  }
+};
 /**
  * Package Controller
  */
@@ -115,7 +125,8 @@ class Package {
    * @return {Promise.<Repository>}
    */
   async create() {
-    return await Clone.clone(this.url, this.fullpath);
+    console.log('thisurl', this.url)
+    return await Clone.clone(this.url, this.fullpath, options);
   }
 
   /**

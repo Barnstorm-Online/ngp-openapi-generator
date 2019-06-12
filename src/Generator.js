@@ -33,7 +33,7 @@ class Generator {
    * @param {object|string} spec Swagger/OpenAPI specification
    * @param {string} pkgPath Path to Generate the Packages to
    */
-  constructor({dir = '../', spec, pkgPath}) {
+  constructor(dir = '../', spec, pkgPath) {
     // Ensure Configuration
     if (!process.env['GITHUB_USER_AGENT']||!process.env['GITHUB_TOKEN']) {
       throw new Error('Must have Github UserAgent and Token');
@@ -93,14 +93,13 @@ class Generator {
   /**
    * Get the Organization
    */
-  static get org() {
+  get org() {
     if (! process.env['GITHUB_ORGANIZATION']) {
       throw new Error('Must have GitHub Organiation configured');
     }
-
     return {
       name: process.env['GITHUB_ORGANIZATION'] || 'barnstorm-online',
-      url: `https://github.com/${process.env['GITHUB_ORGANIZATION']}`,
+      url: `ssh://git@github.com/${process.env['GITHUB_ORGANIZATION']}`,
     };
   }
   /**
@@ -117,7 +116,7 @@ class Generator {
    */
   get remotes() {
     return this.github.repos.listForOrg({
-      org: Generator.org.name,
+      org: this.org.name,
       type: 'public',
     }).then(({data}) => {
       return data;
@@ -151,12 +150,12 @@ class Generator {
      */
     this.getTargetsList().forEach(async (target) => {
       const pkg = new Package(target, this);
-      await pkg.init();
-      this.packages[pkg.name] = pkg;
+      await pkg.init().catch((err)=>{console.log('shiz', err)});
+      // this.packages[pkg.name] = pkg;
     });
 
     if (auto) {
-      Generator.run();
+      this.run();
     }
   }
 
@@ -212,7 +211,7 @@ class Generator {
   /**
    * Runner
    */
-  static run() {
+  run() {
     console.log('Running');
   }
 }
