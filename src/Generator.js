@@ -150,7 +150,9 @@ class Generator {
      */
     this.getTargetsList().forEach(async (target) => {
       const pkg = new Package(target, this);
-      await pkg.init().catch((err)=>{console.log('shiz', err)});
+      await pkg.init().catch((err)=>{
+        console.log('shiz', err);
+      });
       // this.packages[pkg.name] = pkg;
     });
 
