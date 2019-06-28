@@ -17,9 +17,15 @@ env:
     - API_PREFIX=ngp
     - secure: MBC6LdCxmhzUVSVIo3o+CpGatfO3HodtnUeiv0ey/PPkvHfY4nZYVYiEgQlDHRpMElWdcNY7YygbCEoovyV0A24xU61C9hk3iZtQzPsrK4G9m8dffri5Oin55JukafsRrOeNLZroG7j+CVZIuiB/qTxWMBpSZ9J+CXv4oizUDFYBWepqjEAEH0S1T+dQExbcGd53wnpIpbZAbolLc2bTxdord94opvZci0j4chh3Nw1G9lNQJwALBBeTnDINT+hGs4XnSM7T8QiLwiWOqDmmuDf5DRzsRMpVmxvNG2c0CXVq8SoZEfnyIsb4H4qIhnF294ow20edyZVHNSlcS5tyLf+hdmrjHZW581SaroP4DmYb/9j6NchbOA0UeuHxPACnkWiw4lO6fO/Y9T38/dRwqPAHtBLQ0bE6aZEMtvdi7ORmzUxgIWO9oWaCouGnC5j80xS0CWyBVC5mzV37YvHBLkk2YbqQLTJoKH3OCllNePdmoCD6jWTsRLE8Ckc4EPphReSzVkhVcblcyK3Dj8WGwibOeMNJqIfBTnCxfkUUJPneN6QgfD147+4naCPxpBe6M8r7BzGXrGQOIS/cDCFMP9sIsU/k/ODNENTt4C+362Fgcy5Ciis7i0GZ1FJ6J0kGLihV29zLYZccKTY8im7I+vogInvbiSI9aEtkujf2hi8=
 before_install:
+  - openssl aes-256-cbc -K $encrypted_a1e9a855b793_key -iv $encrypted_a1e9a855b793_iv
+    -in git_rsa.enc -out /tmp/git_rsa -d
+  - eval "$(ssh-agent -s)"
+  - chmod 600 /tmp/git_rsa
+  - ssh-add /tmp/git_rsa
   - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
+    -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 after_script:
-  - ./bin/generate.sh
+  - "./bin/generate.sh"
