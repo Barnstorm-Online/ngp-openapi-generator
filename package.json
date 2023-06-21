@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Barnstorm-Online/ngp-openapi-generator#readme",
   "dependencies": {
-    "@octokit/rest": "^16.28.0",
+    "@octokit/rest": "^17.0.0",
     "dotenv": "^8.0.0",
     "fs-extra": "^8.0.1",
     "handlebars": "^4.1.2",
